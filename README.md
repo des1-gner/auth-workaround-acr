@@ -134,3 +134,19 @@ Launching with direct_code_deploy deployment for agent 'agent_with_auth'
 │    aws logs tail <redacted> --log-stream-name-prefix "2025/12/26/[runtime-logs" --follow                                                                                                                                                                   │
 │    aws logs tail <redacted> --log-stream-name-prefix "2025/12/26/[runtime-logs" --since 1h                                                                                                                                                                 │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Use get_token.py to get a token from your Cognito User Pool then add that to invoke_with_token.py, and test:
+
+workaround % ./invoke_with_token.py
+Status: 200
+Response: {"result": "✅ Authorized! Processed: Test with OAuth token", "user_sub": "<redacted>", "user_groups": ["DeveloperGroup"], "token_issuer": "<redacted>", "token_audience": "<redacted>"}
+
+Parsed:
+{
+  "result": "\u2705 Authorized! Processed: Test with OAuth token",
+  "user_sub": "<redacted>",
+  "user_groups": [
+    "DeveloperGroup"
+  ],
+  "token_issuer": "<redacted>",
+  "token_audience": "<redacted>"
+}
